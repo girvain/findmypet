@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Animal } from './Animal';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'findmypet';
+    title = 'findmypet';
+
+    animal: Object = {
+        id: 23,
+        name: 'Gary',
+        species: 'dog',
+        breed: 'Shiba Inu',
+        colour: 'gray',
+        town: 'east kilbride',
+        city: 'glasgow'
+    }
+
+
 }

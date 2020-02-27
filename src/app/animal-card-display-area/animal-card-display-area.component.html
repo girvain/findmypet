@@ -1,0 +1,17 @@
+<div fxLayoutAlign="center">
+  <div
+    fxLayout="row wrap"
+    fxLayoutAlign="center"
+    fxLayoutGap="15px grid"
+    fxLayout.lt-sm="column"
+  >
+    <app-animal-card
+      *ngFor="let animal of animals"
+      [animal]="animal"
+      fxFlex="0 1 calc(33.3% - 32px)"
+      fxFlex.lt-md="0 1 calc(50% - 32px)"
+      fxFlex.lt-sm="100%"
+    >
+    </app-animal-card>
+  </div>
+</div>
