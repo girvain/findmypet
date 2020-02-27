@@ -9,10 +9,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
+import { AgmCoreModule } from '@agm/core';
+
 import { AnimalCardComponent } from './animal-card/animal-card.component';
 import { AnimalCardDisplayAreaComponent } from './animal-card-display-area/animal-card-display-area.component';
 import { PetMapDisplayAreaComponent } from './pet-map-display-area/pet-map-display-area.component';
 import { PetMapComponent } from './pet-map/pet-map.component';
+import { AnimalCardMapComponent } from './animal-card-map/animal-card-map.component';
 
 
 @NgModule({
@@ -21,7 +24,8 @@ import { PetMapComponent } from './pet-map/pet-map.component';
     AnimalCardComponent,
     AnimalCardDisplayAreaComponent,
     PetMapDisplayAreaComponent,
-    PetMapComponent
+    PetMapComponent,
+    AnimalCardMapComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +34,10 @@ import { PetMapComponent } from './pet-map/pet-map.component';
       FlexLayoutModule,
       MatButtonModule,
       MatCardModule,
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyDEUIqODp2kzGD8uElWsLMA3ZfREPAVu98"
+    }),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

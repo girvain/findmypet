@@ -1,0 +1,30 @@
+agm-map {
+  height: 500px;
+  margin-top: 20px;
+}
+
+
+* {
+  font-family: Lato;
+}
+
+a {
+  color: darkblue;
+}
+
+.example-card {
+  max-width: 200px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+agm-info-window {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+gm-style-iw gm-style-iw-c {
+    padding-left: 0px;
+}

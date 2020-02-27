@@ -1,1 +1,16 @@
-<p>pet-map works!</p>
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+  <agm-marker [latitude]="lat" [longitude]="lng"> </agm-marker>
+
+  <agm-marker
+    *ngFor="let m of markers; let i = index"
+    [latitude]="m.lat"
+    [longitude]="m.lng"
+    [label]="m.label"
+    [iconUrl]="m.iconUrl"
+    (markerClick)="clickedMarker(m.id)"
+  >
+    <agm-info-window>
+      <app-animal-card-map [animal]="m"></app-animal-card-map>
+    </agm-info-window>
+  </agm-marker>
+</agm-map>

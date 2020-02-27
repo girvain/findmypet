@@ -1,0 +1,23 @@
+<div class="animal-card-map">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ animal.name }}</mat-card-title>
+    <mat-card-subtitle>{{ animal.species }}</mat-card-subtitle>
+  </mat-card-header>
+  <img
+    class="card-image"
+    mat-card-image
+    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+    alt="Photo of a Shiba Inu"
+  />
+  <mat-card-content>
+    <p><strong>Missing From: </strong>{{ animal.missingFrom }}</p>
+  </mat-card-content>
+
+  <address>
+    <a href="mailto:{{ animal.email }}"><img src="../assets/envelope.png"/></a>
+    <a href="tel:+{{ animal.phoneNo }}"
+      ><img src="../assets/telephone.png" id="phone-img" />{{ animal.phoneNo }}
+    </a>
+  </address>
+</div>
