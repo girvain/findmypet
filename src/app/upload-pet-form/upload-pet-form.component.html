@@ -1,35 +1,62 @@
 <div fxLayoutAlign="center">
   <form
-    class="example-form"
     [formGroup]="uploadPetForm"
     (ngSubmit)="onSubmit()"
+    class="example-form"
   >
     <mat-form-field class="example-full-width">
       <mat-label>Pet's Name</mat-label>
-      <input matInput placeholder="Required" value="" formControlName="name" />
+      <input
+        type="text"
+        matInput
+        placeholder="Ex. Benji"
+        value=""
+        [formControl]="name"
+        formControlName="name"
+        [errorStateMatcher]="matcher"
+      />
+      <mat-error *ngIf="name.hasError('required')">
+        Name is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
       <mat-label>Species</mat-label>
       <input
         matInput
-        placeholder="Required"
+        placeholder="Ex. Dog"
         value=""
         formControlName="species"
       />
+      <mat-error *ngIf="species.hasError('required')">
+        Species is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
+
     <mat-form-field class="example-full-width">
       <mat-label>Breed</mat-label>
-      <input matInput placeholder="Required" value="" formControlName="breed" />
+      <input
+        matInput
+        placeholder="Ex. Labrador"
+        value=""
+        formControlName="breed"
+      />
+      <mat-error *ngIf="breed.hasError('required')">
+        Breed is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
+
     <mat-form-field class="example-full-width">
       <mat-label>Color 1</mat-label>
       <input
         matInput
-        placeholder="Required"
+        placeholder="Ex. Black"
         value=""
         formControlName="color1"
       />
+      <mat-error *ngIf="color1.hasError('required')">
+        Color 1 is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
@@ -41,13 +68,21 @@
         formControlName="color2"
       />
     </mat-form-field>
+
     <mat-form-field class="example-full-width">
       <mat-label>Town</mat-label>
       <input matInput placeholder="Required" value="" formControlName="town" />
+      <mat-error *ngIf="town.hasError('required')">
+        Town is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
+
     <mat-form-field class="example-full-width">
       <mat-label>City</mat-label>
       <input matInput placeholder="Required" value="" formControlName="city" />
+      <mat-error *ngIf="city.hasError('required')">
+        City is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
@@ -59,10 +94,18 @@
         formControlName="postcode"
       />
     </mat-form-field>
+
     <mat-form-field class="example-full-width">
       <mat-label>Email</mat-label>
-      <input matInput placeholder="Optional" value="" formControlName="email" />
+      <input matInput placeholder="Required" value="" [formControl]="email" />
+      <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="email.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
+
     <mat-form-field class="example-full-width">
       <mat-label>Phone Number</mat-label>
       <input
@@ -72,7 +115,11 @@
         formControlName="phoneNo"
         type="tel"
       />
+      <mat-error *ngIf="phoneNo.hasError('required')">
+        Phone Number is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
+
     <mat-label color="primary">Upload File</mat-label>
     <br />
     <input placeholder="Required" value="" formControlName="file" type="file" />

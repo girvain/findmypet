@@ -1,5 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroupDirective, NgForm, FormGroup, Validators } from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
+
+/** Error when invalid control is dirty, touched, or submitted. */
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 @Component({
     selector: 'app-upload-pet-form',
@@ -39,13 +48,40 @@ export class UploadPetFormComponent implements OnInit {
         phoneNo: new FormControl('', [
             Validators.required,
         ]),
-        file: new FormControl('', [
-            Validators.required,
-        ]),
+        file: new FormControl(''),
     });
+
+    get name() {
+        return this.uploadPetForm.get('name');
+    }
+    get species() {
+        return this.uploadPetForm.get('species');
+    }
+    get breed() {
+        return this.uploadPetForm.get('breed');
+    }
+    get color1() {
+        return this.uploadPetForm.get('color1');
+    }
+    get town() {
+        return this.uploadPetForm.get('town');
+    }
+    get city() {
+        return this.uploadPetForm.get('city');
+    }
+    get email() {
+        return this.uploadPetForm.get('email');
+    }
+    get phoneNo() {
+        return this.uploadPetForm.get('phoneNo');
+    }
+
+
 
     onSubmit(): void {
         console.log(this.uploadPetForm.value);
     }
+
+    matcher = new MyErrorStateMatcher();
 
 }
