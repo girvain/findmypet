@@ -1,3 +1,9 @@
+:host {
+    padding: 0px 0px 0px 0px;
+    padding-right: 0px;
+}
+
+
 .example-card {
   max-width: 400px;
 }
@@ -5,4 +11,18 @@
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
+}
+a {
+  outline: none;
+  text-decoration: none;
+  padding: 0px 0px 0px 0px;
+}
+
+a:link {
+  color: #0074D9;
+}
+address img {
+    max-width: 20px;
+    margin-left: 0px;
+    margin-right: 10px;
 }
