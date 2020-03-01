@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PetsService } from '../pets.service';
 
 @Component({
     selector: 'app-pet-map',
@@ -11,44 +12,44 @@ export class PetMapComponent implements OnInit {
     lat: any;
     lng: any;
     markers: any[] = [
-        {
-            id: 1,
-            name: 'Gary',
-            species: 'Dog',
-            breed: 'Shitsu',
-            missingFrom: '13/01/2020',
-            email: 'gavinross88@hotmail.co.uk',
-            phoneNo: '07587083744',
-            lat: 55.777005,
-            lng: -4.182441,
-            iconUrl: '../assets/pawprint.png'
-        },
-        {
-            id: 2,
-            name: 'Frank',
-            species: 'Dog',
-            breed: 'Shitsu',
-            missingFrom: '13/01/2020',
-            email: 'gavinross88@hotmail.co.uk',
-            phoneNo: '07587083744',
-            lat: 55.832760,
-            lng: -4.427902,
-            iconUrl: '../assets/pawprint.png'
-        },
-        {
-            id: 3,
-            name: 'Boaby',
-            species: 'Dog',
-            breed: 'Shitsu',
-            missingFrom: '13/01/2020',
-            email: 'gavinross88@hotmail.co.uk',
-            phoneNo: '07587083744',
-            lat: 55.812972,
-            lng: -4.240531,
-            iconUrl: '../assets/pawprint.png'
-        }
+        // {
+        //     id: 1,
+        //     name: 'Gary',
+        //     species: 'Dog',
+        //     breed: 'Shitsu',
+        //     missingFrom: '13/01/2020',
+        //     email: 'gavinross88@hotmail.co.uk',
+        //     phoneNo: '07587083744',
+        //     lat: 55.777005,
+        //     lng: -4.182441,
+        //     iconUrl: '../assets/pawprint.png'
+        // },
+        // {
+        //     id: 2,
+        //     name: 'Frank',
+        //     species: 'Dog',
+        //     breed: 'Shitsu',
+        //     missingFrom: '13/01/2020',
+        //     email: 'gavinross88@hotmail.co.uk',
+        //     phoneNo: '07587083744',
+        //     lat: 55.832760,
+        //     lng: -4.427902,
+        //     iconUrl: '../assets/pawprint.png'
+        // },
+        // {
+        //     id: 3,
+        //     name: 'Boaby',
+        //     species: 'Dog',
+        //     breed: 'Shitsu',
+        //     missingFrom: '13/01/2020',
+        //     email: 'gavinross88@hotmail.co.uk',
+        //     phoneNo: '07587083744',
+        //     lat: 55.812972,
+        //     lng: -4.240531,
+        //     iconUrl: '../assets/pawprint.png'
+        // }
     ]
-    constructor() {
+    constructor(private petsService: PetsService) {
         if (navigator) {
             navigator.geolocation.getCurrentPosition(pos => {
                 this.lng = +pos.coords.longitude;
@@ -60,6 +61,12 @@ export class PetMapComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.petsService.getPetsAll()
+            .subscribe(result => {
+                console.log(result);
+                this.markers = result;
+            });
+
     }
 
     clickedMarker(id: number) {

@@ -53,7 +53,7 @@ import { UploadPetFormComponent } from './upload-pet-form/upload-pet-form.compon
       MatSelectModule,
       MatInputModule,
     AgmCoreModule.forRoot({
-      apiKey: "AIzaSyDEUIqODp2kzGD8uElWsLMA3ZfREPAVu98"
+      apiKey: "AIzaSyBTeTxxRv1A90-82vUJ0H-pKNHTNx7DE_A"
     }),
 
   ],

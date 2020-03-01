@@ -13,5 +13,6 @@ export class Animal {
     lat: number;
     lng: number;
     iconUrl: string;
+    pictureKey: string;
     petPictureURL: string;
 }

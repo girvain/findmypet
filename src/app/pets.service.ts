@@ -14,8 +14,8 @@ export class PetsService {
 
     constructor(public http: HttpClient) { }
 
-    getPetsAll(petForm: any): Observable<any> {
-        return this.http.get<any>(this.baseUrl+ '/all', petForm);
+    getPetsAll(): Observable<any> {
+        return this.http.get<any>(this.baseUrl+ '/all');
     }
 
     getPetsFind(petForm: any): Observable<any> {
@@ -24,6 +24,10 @@ export class PetsService {
     }
     getBatman(): Observable<any> {
         return this.http.get<any>(this.baseUrl+ '/aws/get-batman');
+    }
+
+    getFile(fileKey: string): Observable<any> {
+        return this.http.get<any>(this.baseUrl+ `/aws/get-file/${fileKey}`);
     }
 
 }

@@ -4,12 +4,7 @@
     <mat-card-title>{{ animal.name }}</mat-card-title>
   </mat-card-header>
   <mat-card-subtitle>{{ animal.species }}</mat-card-subtitle>
-  <img
-    class="card-image"
-    mat-card-image
-    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-    alt="Photo of a Shiba Inu"
-  />
+  <img class="card-image" mat-card-image src="{{ animal.petPictureURL }}" />
   <mat-card-content>
     <p><strong>Missing From: </strong>{{ animal.missingFrom }}</p>
   </mat-card-content>

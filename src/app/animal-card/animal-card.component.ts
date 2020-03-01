@@ -13,7 +13,7 @@ export class AnimalCardComponent implements OnInit {
     constructor(public petService: PetsService) { }
 
   ngOnInit(): void {
-      this.petService.getBatman().subscribe(result => {
+      this.petService.getFile(this.animal.pictureKey).subscribe(result => {
           console.log(result);
           this.animal.petPictureURL = result;
       });
