@@ -30,4 +30,12 @@ export class PetsService {
         return this.http.get<any>(this.baseUrl+ `/aws/get-file/${fileKey}`);
     }
 
+    getSignedUrlForPut(): Observable<any> {
+        return this.http.get<any>(this.baseUrl+ '/aws/sign-s3');
+    }
+
+    putFileOnS3(url: string, file: any): Observable<any> {
+        return this.http.put<any>(url, file);
+    }
+
 }
