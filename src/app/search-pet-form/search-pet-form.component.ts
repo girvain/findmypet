@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { PetsService } from '../pets.service';
+import { Animal } from '../Animal';
 
 @Component({
     selector: 'app-search-pet-form',
@@ -7,6 +9,9 @@ import { FormControl, FormGroup } from '@angular/forms';
     styleUrls: ['./search-pet-form.component.css']
 })
 export class SearchPetFormComponent implements OnInit {
+
+    @Input() animals: any[];
+    @Output() animalsChange: EventEmitter<any>;
 
     searchPetForm = new FormGroup({
         name: new FormControl(''),
@@ -18,13 +23,21 @@ export class SearchPetFormComponent implements OnInit {
         city: new FormControl(''),
     });
 
-    constructor() { }
+    constructor(private petsService: PetsService) {
+        this.animalsChange = new EventEmitter()
+    }
 
     ngOnInit(): void {
     }
 
     onSubmit(): void {
-        console.log(this.searchPetForm.value);
+        //console.log(this.searchPetForm.value);
+        // this.petsService.getPets(this.searchPetForm.value)
+        //     .subscribe(result => {
+        //         console.log(result);
+        //         this.animals = result;
+        //     });
+        this.animalsChange.emit(this.searchPetForm.value);
     }
 
 }

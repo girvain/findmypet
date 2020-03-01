@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
@@ -44,6 +45,7 @@ import { UploadPetFormComponent } from './upload-pet-form/upload-pet-form.compon
     AppRoutingModule,
       BrowserAnimationsModule,
       ReactiveFormsModule,
+      HttpClientModule,
       FlexLayoutModule,
       MatButtonModule,
       MatCardModule,

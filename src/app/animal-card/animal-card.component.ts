@@ -1,5 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { Animal } from '../Animal';
+import { PetsService } from '../pets.service';
 
 @Component({
   selector: 'app-animal-card',
@@ -9,9 +10,13 @@ import { Animal } from '../Animal';
 export class AnimalCardComponent implements OnInit {
     @Input() animal: Animal;
 
-  constructor() { }
+    constructor(public petService: PetsService) { }
 
   ngOnInit(): void {
+      this.petService.getBatman().subscribe(result => {
+          console.log(result);
+          this.animal.petPictureURL = result;
+      });
   }
 
 }
