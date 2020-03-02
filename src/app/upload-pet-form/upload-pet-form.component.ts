@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, FormGroup, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { PetsService } from '../pets.service';
+import { FileUploader } from 'ng2-file-upload';
+import { Router } from '@angular/router';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -18,9 +20,29 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class UploadPetFormComponent implements OnInit {
 
-    constructor(private petsService: PetsService) { }
+    public uploader: FileUploader = new FileUploader({ url: '', disableMultipart: true });
+    public pictureKey: string;
+
+    constructor(private petsService: PetsService,
+                private router: Router) { }
 
     ngOnInit(): void {
+        this.uploader.onAfterAddingFile = item => {
+            this.petsService.getSignedUrlForPut().subscribe(result => {
+                item.url = result.signedRequest;
+                item.method = 'PUT';
+                item.headers = [{ name: 'Content-Type', value: item.file.type }];
+                item.withCredentials = false;
+                item.onSuccess = () => { // add the picture key when the files uploaded
+                    this.pictureKey = result.pictureKey;//name of the file just uploaded to S3
+                }
+                item.upload();
+                console.log(item);
+                console.log(result.pictureKey);
+                // NOTE: the submit button will be disabled until the pictueKey has a value
+                // which it gets from the onSuccess call back above
+            });
+        };
     }
 
     uploadPetForm = new FormGroup({
@@ -37,6 +59,8 @@ export class UploadPetFormComponent implements OnInit {
             // [Validators.required,]
         ),
         color2: new FormControl(''),
+        description: new FormControl(''),
+        missingFrom: new FormControl(''),
         address1: new FormControl(''),
         address2: new FormControl(''),
         town: new FormControl('',
@@ -50,7 +74,7 @@ export class UploadPetFormComponent implements OnInit {
             // [Validators.email],
         ),
         phoneNo: new FormControl('',
-                                 // [Validators.required]
+            // [Validators.required]
         ),
         file: new FormControl(''),
     });
@@ -81,16 +105,16 @@ export class UploadPetFormComponent implements OnInit {
     }
 
 
-
     onSubmit(): void {
-        console.log(this.uploadPetForm.value.file);
-        this.petsService.getSignedUrlForPut().subscribe(result => {
-            console.log(result);
-            this.petsService.putFileOnS3(result.signedRequest, this.uploadPetForm.value.file)
-                .subscribe(result => {
-                    console.log(result);
-                });
-        });
+        // add the pictureKey to the form object
+        this.uploadPetForm.value.pictureKey = this.pictureKey;
+        console.log(this.uploadPetForm.value);
+        this.petsService.postPet(this.uploadPetForm.value)
+            .subscribe(result => {
+                console.log(result);
+                this.router.navigate(['/pet-map']);
+            });
+
     }
 
     matcher = new MyErrorStateMatcher();

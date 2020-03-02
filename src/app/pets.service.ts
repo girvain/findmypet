@@ -7,7 +7,8 @@ import {Observable} from 'rxjs';
 })
 export class PetsService {
     httpOptions = {
-      headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})
+        headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'}),
+        withCredentials: false,
   };
 
     baseUrl = 'http://localhost:3000';
@@ -37,5 +38,11 @@ export class PetsService {
     putFileOnS3(url: string, file: any): Observable<any> {
         return this.http.put<any>(url, file);
     }
+
+    postPet(pet: any): Observable<any> {
+        return this.http.post<any>(this.baseUrl+ '/add-pet', pet);
+    }
+
+
 
 }

@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,6 +16,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 
 import { AgmCoreModule } from '@agm/core';
+import {FileUploadModule } from 'ng2-file-upload';
 
 import { AnimalCardComponent } from './animal-card/animal-card.component';
 import { AnimalCardDisplayAreaComponent } from './animal-card-display-area/animal-card-display-area.component';
@@ -55,6 +57,7 @@ import { UploadPetFormComponent } from './upload-pet-form/upload-pet-form.compon
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyBTeTxxRv1A90-82vUJ0H-pKNHTNx7DE_A"
     }),
+      FileUploadModule,
 
   ],
   providers: [],

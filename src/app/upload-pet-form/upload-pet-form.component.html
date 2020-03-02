@@ -70,6 +70,26 @@
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
+      <mat-label>Description</mat-label>
+      <input
+        matInput
+        placeholder="Ex. Friendly with a really bushy tail"
+        value=""
+        formControlName="description"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Missing From</mat-label>
+      <input
+        matInput
+        placeholder="Ex. 11/01/20"
+        value=""
+        formControlName="missingFrom"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
       <mat-label>Town</mat-label>
       <input matInput placeholder="Required" value="" formControlName="town" />
       <mat-error *ngIf="town.hasError('required')">
@@ -122,15 +142,24 @@
 
     <mat-label color="primary">Upload File</mat-label>
     <br />
-    <input placeholder="Required" value="" formControlName="file" type="file" />
+    <input
+      type="file"
+      ng2FileSelect
+      [uploader]="uploader"
+      placeholder="Required"
+      value=""
+      formControlName="file"
+    />
 
     <div fxLayoutAlign="center">
       <button
+        (click)="uploader.uploadAll()"
         mat-raised-button
         color="primary"
         fxLayoutAlign="center"
         type="submit"
         [disabled]="!uploadPetForm.valid"
+        [disabled]="!pictureKey"
       >
         Submit
       </button>
