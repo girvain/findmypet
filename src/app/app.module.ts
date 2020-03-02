@@ -64,9 +64,18 @@ import { LogoComponent } from './logo/logo.component';
       MatToolbarModule,
       MatMenuModule,
       MatIconModule,
+
+
+
     AgmCoreModule.forRoot({
-      apiKey: "AIzaSyBTeTxxRv1A90-82vUJ0H-pKNHTNx7DE_A"
+
+        /******************************* Put Google API Key Here! *************************/
+
+      apiKey: "" // <- Google API string goes here!!
     }),
+
+
+
       FileUploadModule,
 
   ],
