@@ -1,0 +1,37 @@
+<div class="example-container">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="['/pet-map']">Map</button>
+      <button mat-menu-item [routerLink]="['/pet-search']">Search</button>
+      <button mat-menu-item [routerLink]="['/pet-upload']">Upload</button>
+    </mat-menu>
+    <h1 class="example-app-name">Find My Pet</h1>
+  </mat-toolbar>
+</div>
+
+<!-- 
+
+     <div id="navbar">
+     <span class="example-spacer"></span>
+     <button
+     class="example-spacer"
+     aria-hidden="false"
+     aria-label="Example user verified icon"
+     >
+     verified_user
+     </button>
+     <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+     <mat-menu #menu="matMenu">
+     <button mat-menu-item>Item 1</button>
+     <button mat-menu-item>Item 2</button>
+     </mat-menu>
+
+     <mat-toolbar color="primary">
+     <mat-toolbar-row>
+     <span>Find My Pet</span>
+     </mat-toolbar-row>
+     </mat-toolbar>
+     </div> -->

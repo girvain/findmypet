@@ -14,6 +14,9 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 
 import { AgmCoreModule } from '@agm/core';
 import {FileUploadModule } from 'ng2-file-upload';
@@ -27,6 +30,8 @@ import { UploadPetDisplayAreaComponent } from './upload-pet-display-area/upload-
 import { SearchPetDisplayAreaComponent } from './search-pet-display-area/search-pet-display-area.component';
 import { SearchPetFormComponent } from './search-pet-form/search-pet-form.component';
 import { UploadPetFormComponent } from './upload-pet-form/upload-pet-form.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LogoComponent } from './logo/logo.component';
 
 
 @NgModule({
@@ -34,13 +39,15 @@ import { UploadPetFormComponent } from './upload-pet-form/upload-pet-form.compon
     AppComponent,
     AnimalCardComponent,
     AnimalCardDisplayAreaComponent,
-    PetMapDisplayAreaComponent,
+      PetMapDisplayAreaComponent,
     PetMapComponent,
     AnimalCardMapComponent,
     UploadPetDisplayAreaComponent,
     SearchPetDisplayAreaComponent,
     SearchPetFormComponent,
-    UploadPetFormComponent
+    UploadPetFormComponent,
+    NavbarComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +61,9 @@ import { UploadPetFormComponent } from './upload-pet-form/upload-pet-form.compon
       MatFormFieldModule,
       MatSelectModule,
       MatInputModule,
+      MatToolbarModule,
+      MatMenuModule,
+      MatIconModule,
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyBTeTxxRv1A90-82vUJ0H-pKNHTNx7DE_A"
     }),

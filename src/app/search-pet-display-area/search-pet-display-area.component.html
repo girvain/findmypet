@@ -1,3 +1,14 @@
+<app-logo></app-logo>
+<div fxLayout="row" fxLayoutAlign="center center">
+  <h1>Search For Your Pet</h1>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="center center">
+  <p>
+    Enter some arrtibutes to filter the search or just click submit to see all
+    the results
+  </p>
+</div>
 <app-search-pet-form
   [animals]="animals"
   (animalsChange)="getPetsFromComponent($event)"
