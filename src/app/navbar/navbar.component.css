@@ -3,16 +3,15 @@
   /* flex-direction: column; */
   position: absolute;
   position: fixed;
+overflow: hidden;
   /* z-index: 2; */
   top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
 }
 .example-is-mobile .example-toolbar {
   position: fixed;
   /* Make sure the toolbar will stay on top of the content as it scrolls past. */
-  z-index: 2;
+  /* z-index: 2; */
 }
 
 h1.example-app-name {

@@ -88,6 +88,15 @@
         formControlName="missingFrom"
       />
     </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Address</mat-label>
+      <input
+        matInput
+        placeholder="Ex. 34 Johnson Drive"
+        value=""
+        formControlName="address1"
+      />
+    </mat-form-field>
 
     <mat-form-field class="example-full-width">
       <mat-label>Town</mat-label>
@@ -143,6 +152,7 @@
     <mat-label color="primary">Upload File</mat-label>
     <br />
     <input
+      id="upload-button"
       type="file"
       ng2FileSelect
       [uploader]="uploader"

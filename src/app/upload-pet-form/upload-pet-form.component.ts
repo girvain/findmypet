@@ -47,16 +47,16 @@ export class UploadPetFormComponent implements OnInit {
 
     uploadPetForm = new FormGroup({
         name: new FormControl('',
-            // [Validators.required,]
+            [Validators.required,]
         ),
         species: new FormControl('',
-            // [Validators.required,]
+            [Validators.required,]
         ),
         breed: new FormControl('',
-            // [Validators.required,]
+            [Validators.required,]
         ),
         color1: new FormControl('',
-            // [Validators.required,]
+            [Validators.required,]
         ),
         color2: new FormControl(''),
         description: new FormControl(''),
@@ -64,17 +64,17 @@ export class UploadPetFormComponent implements OnInit {
         address1: new FormControl(''),
         address2: new FormControl(''),
         town: new FormControl('',
-            // [Validators.required]
+            [Validators.required]
         ),
         city: new FormControl('',
-            // [Validators.required,]
+            [Validators.required,]
         ),
         postcode: new FormControl(''),
         email: new FormControl('',
-            // [Validators.email],
+            [Validators.email],
         ),
         phoneNo: new FormControl('',
-            // [Validators.required]
+            [Validators.required]
         ),
         file: new FormControl(''),
     });
