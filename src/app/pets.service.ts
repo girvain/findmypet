@@ -11,7 +11,8 @@ export class PetsService {
         withCredentials: false,
   };
 
-    baseUrl = 'http://localhost:3000';
+    //baseUrl = 'http://localhost:3000';
+    baseUrl = 'https://findmypetserver.herokuapp.com';
 
     constructor(public http: HttpClient) { }
 

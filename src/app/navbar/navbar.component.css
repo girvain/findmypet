@@ -4,7 +4,7 @@
   position: absolute;
   position: fixed;
 overflow: hidden;
-  /* z-index: 2; */
+  z-index: 100;
   top: 0;
   width: 100%;
 }
