@@ -119,9 +119,16 @@
               "devServerTarget": "findmypet:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }
   },
-  "defaultProject": "findmypet"
+  "defaultProject": "findmypet",
+  "cli": {
+    "analytics": false
+  }
 }
